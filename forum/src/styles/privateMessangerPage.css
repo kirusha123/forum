@@ -1,0 +1,32 @@
+.forum-block {
+  display: flex;
+  min-height: 666px;
+  max-height: 666px;
+  min-width: 500px;
+  height: 80vh;
+  width: 70vh;
+}
+
+.typing-block {
+  display: flex;
+  width: 70vh;
+  min-width: 500px;
+  height: 75px;
+}
+
+.clickable-item:hover {
+  background-color: azure;
+  cursor: pointer;
+}
+
+.user-container {
+  min-width: 300px;
+}
+
+ul {
+  overflow-y: auto;
+}
+
+ul::-webkit-scrollbar {
+  width: 0;
+}
