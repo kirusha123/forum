@@ -1,0 +1,22 @@
+CREATE TABLE public.user
+(id SERIAL PRIMARY KEY,
+name varchar(32) NOT NULL,
+password varchar(128) NOT NULL);
+
+INSERT INTO public.user (name, password) VALUES ('кто-то', 'root');
+
+CREATE TABLE public.messages
+(id SERIAL PRIMARY KEY,
+text varchar(128) NOT NULL,
+owner integer NOT NULL DEFAULT 1,
+FOREIGN KEY (owner) REFERENCES public.user (id) ON DELETE SET DEFAULT
+);
+
+CREATE TABLE public.messages_private
+(id SERIAL PRIMARY KEY,
+id_from integer NOT NULL DEFAULT 1,
+id_to integer NOT NULL DEFAULT 1,
+text varchar(128) NOT NULL,
+FOREIGN KEY (id_from) REFERENCES public.user (id) ON DELETE SET DEFAULT,
+FOREIGN KEY(id_to) REFERENCES public.user (id) ON DELETE SET DEFAULT
+);
